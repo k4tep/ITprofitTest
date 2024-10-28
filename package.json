@@ -3,19 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "node server/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "cors": "^2.8.5",
     "css-loader": "^7.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "style-loader": "^4.0.0"
+    "react-hook-form": "^7.53.1",
+    "style-loader": "^4.0.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
