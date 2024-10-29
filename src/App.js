@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { infoSchema } from './yupObjects';
 import { ajaxFormSubmit } from './ajax.js';
 import './style.scss';
+import Modal from './components/modal.js';
 
 const App = () => {
     const {
@@ -12,19 +13,23 @@ const App = () => {
         formState: { errors },
         setError,
     } = useForm({ resolver: yupResolver(infoSchema) });
+    const [isVisible, setIsVisible] = useState(false);
+    const [answer, setAnswer] = useState('Nothing yet');
 
     const onSubmit = async (data) => {
-        console.log(data);
         const fieldErrors = await ajaxFormSubmit(data);
         if (fieldErrors) {
             Object.keys(fieldErrors).forEach((fieldName) => {
                 setError(fieldName, { type: 'server', message: fieldErrors[fieldName] });
             });
+            setAnswer(fieldErrors);
+            setIsVisible(true);
         }
     };
 
     return (
         <div className="wrapper">
+            <Modal answer={answer} visibe={isVisible} setIsVisible={setIsVisible} />
             <h1 className="hello-text"> Hello! Please enter this information. </h1>
             {(errors.firstName?.message ||
                 errors.email?.message ||
@@ -70,6 +75,9 @@ const App = () => {
                     Submit
                 </button>
             </form>
+            <button className="modal-button" onClick={() => setIsVisible(true)}>
+                Open modal
+            </button>
         </div>
     );
 };

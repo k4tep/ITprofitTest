@@ -12,22 +12,14 @@ export async function ajaxFormSubmit(data) {
 
         if (response.ok) {
             if (result.status === 'success') {
-                alert(result.msg);
-                return null;
-            } else if (result.status === 'error' && result.fields) {
-                return result.fields;
-            } else {
-                alert('Произошла неизвестная ошибка. Попробуйте позже.');
-                return null;
+                return result.message;
             }
         } else {
-            console.error('Ошибка сети:', response.status);
-            alert('Ошибка сети. Попробуйте позже.');
-            return null;
+            return result.message;
         }
     } catch (error) {
         console.error('Ошибка при отправке данных:', error);
         alert('Произошла ошибка при отправке данных. Попробуйте позже.');
-        return null;
+        return error;
     }
 }

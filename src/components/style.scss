@@ -1,0 +1,32 @@
+.modal-wrapper {
+    background-color: darkseagreen;
+    width: 20%;
+    padding: 20px;
+    padding-top: 5px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+
+    &.close {
+        opacity: 0;
+        bottom: -10%;
+        transition: right 0.5s ease-in-out;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        text-align: right;
+    }
+
+    .modal {
+        h1 {
+            cursor: auto;
+            text-align: left;
+        }
+    }
+}

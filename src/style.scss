@@ -1,9 +1,12 @@
+body {
+    overflow: hidden;
+}
+
 .wrapper {
     background-color: darkslategrey;
     border-radius: 5px;
     padding: 10px;
     font-family: monospace;
-
     .hello-text {
         color: white;
     }
@@ -11,6 +14,7 @@
     .errorField {
         color: red;
         font-size: 15px;
+        margin-bottom: 5px;
     }
 
     .form {
@@ -22,9 +26,23 @@
             height: 25px;
             margin-bottom: 10px;
             border-radius: 5px;
+            background-color: rgb(191, 201, 191);
         }
         .error-border {
             border: 2px red solid;
         }
+
+        .form-button {
+            background-color: rgb(191, 201, 191);
+            border-radius: 5px;
+            height: 25px;
+        }
+    }
+
+    .modal-button {
+        background-color: darkseagreen;
+        margin-top: 10px;
+        border-radius: 5px;
+        height: 25px;
     }
 }
